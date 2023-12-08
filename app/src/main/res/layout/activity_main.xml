@@ -1,18 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:scaleType="centerCrop"
+        android:src="@drawable/mosque_background"
+        android:id="@+id/mosque_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="@font/ubuntu"
+            android:id="@+id/week_day"
+            android:textSize="16sp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="35dp"
+            android:textColor="@color/white"
+            android:text="Суббота"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+            <TextView
+                android:fontFamily="@font/ubuntu"
+                android:id="@+id/day_in_hijr"
+                android:textSize="16sp"
+                android:layout_marginStart="30dp"
+                android:textColor="@color/white"
+                android:text="18 Джумада аль-уля, 1445"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="295dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:drawableLeft="@drawable/location"
+        android:fontFamily="@font/ubuntu"
+        android:text="Астана"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
+
+        <androidx.cardview.widget.CardView
+            android:alpha="0.7"
+            android:elevation="2dp"
+            app:cardCornerRadius="25dp"
+            android:layout_marginBottom="346dp"
+            android:layout_marginTop="345dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="160dp">
+
+          <LinearLayout
+              android:layout_marginTop="15dp"
+              android:layout_marginStart="15dp"
+              android:orientation="vertical"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"  >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ubuntu_condensed_regular"
+                android:text="Фаджр"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+              <TextView
+                  android:textStyle="bold"
+                  android:fontFamily="@font/open_sans"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="18:51:21"
+                  android:textColor="@color/black"
+                  android:textSize="18sp" />
+          </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginEnd="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="68dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/namaz_time_1"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="07:16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/namaz_time_2"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="08:52"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/namaz_time_3"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="13:08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/namaz_time_4"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="15:28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/namaz_time_5"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="17:15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/namaz_time_6"
+                    android:paddingStart="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/open_sans"
+                    android:text="18:51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="90dp"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume1"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume2"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume3"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume4"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume5"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="35dp"
+                    android:id="@+id/volume6"
+                    android:background="@drawable/volume_low"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+</FrameLayout>
