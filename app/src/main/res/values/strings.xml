@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PracticeProject</string>
+    <string name="vol">vol</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="zikr">Зикр</string>
+    <string name="schedule">Таблица на месяц</string>
+    <string name="fon">Фоновая картина</string>
+    <string name="settings">Настройки</string>
 </resources>
