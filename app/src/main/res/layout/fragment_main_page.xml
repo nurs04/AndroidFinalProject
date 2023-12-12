@@ -79,6 +79,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:id="@+id/current_time"
                 android:textStyle="bold"
                 android:fontFamily="@font/open_sans"
                 android:layout_width="wrap_content"

@@ -9,13 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import com.example.practiceproject.R
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import java.text.SimpleDateFormat
+import java.util.Locale
+import android.os.Handler
+import java.util.Date
 import kotlin.math.*
 
 class QiblaFragment : Fragment() {
-
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +33,6 @@ class QiblaFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.fragment_qibla, container, false)
-
         getLocation()
 
         return view
