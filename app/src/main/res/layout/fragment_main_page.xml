@@ -10,10 +10,11 @@
 
     <ImageView
         android:scaleType="centerCrop"
-        android:src="@drawable/mosque_background"
+        android:src="@drawable/mosque_back"
         android:id="@+id/mosque_background"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:importantForAccessibility="no" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -23,10 +24,10 @@
             android:fontFamily="@font/ubuntu"
             android:id="@+id/week_day"
             android:textSize="16sp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="35dp"
             android:textColor="@color/white"
-            android:text="Суббота"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
@@ -35,7 +36,7 @@
             android:textSize="16sp"
             android:layout_marginStart="30dp"
             android:textColor="@color/white"
-            android:text="18 Джумада аль-уля, 1445"
+            android:text=""
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -47,11 +48,11 @@
         android:layout_marginStart="295dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
-        android:drawableLeft="@drawable/location"
         android:fontFamily="@font/ubuntu"
-        android:text="Астана"
+        android:text="@string/almaty_name"
         android:textColor="@color/white"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        app:drawableLeftCompat="@drawable/location" />
 
     <androidx.cardview.widget.CardView
         android:alpha="0.7"
@@ -62,7 +63,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
         android:layout_width="match_parent"
-        android:layout_height="160dp">
+        android:layout_height="170dp">
 
         <LinearLayout
             android:layout_marginTop="15dp"
@@ -74,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_condensed_regular"
-                android:text="Фаджр"
+                android:text="@string/fadjr"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -84,207 +85,266 @@
                 android:fontFamily="@font/open_sans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="18:51:21"
+                android:text="@{viewModel.currentTime}"
                 android:textColor="@color/black"
                 android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/first_linear"
             android:layout_marginEnd="12dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="80dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_width="58dp"
             android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/namaz_time_1"
-                android:paddingStart="10dp"
+                android:paddingStart="5dp"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:fontFamily="@font/open_sans"
-                android:text="07:16"
+                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/namaz_time_2"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/open_sans"
-                android:text="08:52"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/namaz_time_3"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/open_sans"
-                android:text="13:08"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/namaz_time_4"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/open_sans"
-                android:text="15:28"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/namaz_time_5"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/open_sans"
-                android:text="17:15"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/namaz_time_6"
-                android:paddingStart="10dp"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:fontFamily="@font/open_sans"
-                android:text="18:51"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="105dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
 
             <ImageButton
-                android:contentDescription="@string/vol"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
                 android:id="@+id/volume1"
                 android:background="@drawable/volume_low"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                tools:ignore="TouchTargetSizeCheck"/>
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:layout_marginTop="8dp"
+                android:id="@+id/pray_name_1"
+                android:layout_marginStart="12dp"
+                android:textStyle="bold"
+                android:fontFamily="@font/ubuntu_condensed_regular"
+                android:textSize="13sp"
+                android:textColor="@color/black"
+                android:text="@string/fadjr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_linear"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="71dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/namaz_time_2"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
             <ImageButton
-                android:contentDescription="@string/vol"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
                 android:id="@+id/volume2"
                 android:background="@drawable/volume_low"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                tools:ignore="TouchTargetSizeCheck"/>
-            <ImageButton
-                android:contentDescription="@string/vol"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
-                android:id="@+id/volume3"
-                android:background="@drawable/volume_low"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                tools:ignore="TouchTargetSizeCheck"/>
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
 
-            <ImageButton
-                android:id="@+id/volume4"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/volume_low"
-                android:contentDescription="@string/vol"
-                tools:ignore="TouchTargetSizeCheck" />
-            <ImageButton
-                android:contentDescription="@string/vol"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
-                android:id="@+id/volume5"
-                android:background="@drawable/volume_low"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                tools:ignore="TouchTargetSizeCheck"/>
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="35dp"
-                android:id="@+id/volume6"
-                android:background="@drawable/volume_low"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:contentDescription="@string/vol"
-                tools:ignore="TouchTargetSizeCheck"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="135dp"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/pray_name_1"
+                android:layout_marginTop="8dp"
+                android:id="@+id/pray_name_2"
                 android:layout_marginStart="15dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_condensed_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Фаджр"
+                android:text="@string/kun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_linear"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="127dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/pray_name_2"
+                android:id="@+id/namaz_time_3"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:id="@+id/volume3"
+                android:background="@drawable/volume_low"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
+
+            <TextView
+                android:id="@+id/pray_name_3"
+                android:layout_marginTop="8dp"
                 android:layout_marginStart="20dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_condensed_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Восход"
+                android:text="@string/besin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/forth_linear"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="183dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content">
             <TextView
-                android:id="@+id/pray_name_3"
-                android:layout_marginStart="30dp"
-                android:textStyle="bold"
-                android:fontFamily="@font/ubuntu_condensed_regular"
-                android:textSize="13sp"
+                android:id="@+id/namaz_time_4"
+                android:paddingStart="5dp"
                 android:textColor="@color/black"
-                android:text="Зухр"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans"
+                android:text=""
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:id="@+id/volume4"
+                android:background="@drawable/volume_low"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/pray_name_4"
-                android:layout_marginStart="38dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="22dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_condensed_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Аср"
+                android:text="@string/asr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fives_linear"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="237dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/namaz_time_5"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:id="@+id/volume5"
+                android:background="@drawable/volume_low"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/pray_name_5"
-                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="11dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_condensed_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Магриб"
+                android:text="@string/aqsham"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/six_linear"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="297dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/namaz_time_6"
+                android:paddingStart="5dp"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:fontFamily="@font/open_sans"
+                android:text=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageButton
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="20dp"
+                android:id="@+id/volume6"
+                android:background="@drawable/volume_low"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                tools:ignore="TouchTargetSizeCheck"
+                android:importantForAccessibility="no" />
 
             <TextView
                 android:id="@+id/pray_name_6"
-                android:layout_marginStart="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="18dp"
                 android:textStyle="bold"
                 android:fontFamily="@font/ubuntu_condensed_regular"
                 android:textSize="13sp"
                 android:textColor="@color/black"
-                android:text="Иша"
+                android:text="@string/quptan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

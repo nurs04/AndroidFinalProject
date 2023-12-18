@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/numberOfSurah"
+            android:textAlignment="center"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:text="1"
+            android:background="@drawable/backround_for_number"
+            android:layout_width="40dp"
+            android:layout_height="40dp"/>
+
+        <TextView
+            android:id="@+id/name_surah"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/ubuntu"
+            android:layout_marginTop="9dp"
+            android:textSize="28sp"
+            android:text="Аль-Фатиха"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/numberOfAyat"
+        android:textSize="20sp"
+        android:fontFamily="@font/ubuntu"
+        android:textColor="@color/black"
+        android:text="7 аят"
+        android:layout_marginTop="17dp"
+        android:layout_marginStart="310dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_marginStart="18dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/rectangle_23__1_"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"/>
+</FrameLayout>

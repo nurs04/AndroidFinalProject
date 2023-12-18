@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F0F0F0"
     tools:context=".Fragments.QiblaFragment">
 
 
@@ -13,37 +15,36 @@
         android:fontFamily="@font/open_sans"
         android:textAlignment="center"
         android:textSize="32sp"
-        android:text="Qibla"
+        android:text="@string/qibla"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <ImageView
-        android:src="@drawable/img_2"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="195dp"
-        android:layout_width="50dp"
-        android:layout_height="50dp"/>
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/navigation_arrow"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/arrow_new" />
+        android:src="@drawable/arrow_new"
+        android:importantForAccessibility="no" />
 
-    <Button
+    <ImageView
+        android:backgroundTint="@color/black"
         android:id="@+id/open_map_button"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="10dp"
         android:background="@drawable/location"
         android:layout_gravity="bottom"
         android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:importantForAccessibility="no" />
 
-    <Button
+    <ImageView
+        android:backgroundTint="@color/black"
         android:id="@+id/qibla_back_button"
         android:layout_marginBottom="7dp"
         android:layout_marginStart="370dp"
         android:background="@drawable/component_1"
         android:layout_gravity="bottom"
         android:layout_width="50dp"
-        android:layout_height="50dp"/>
+        android:layout_height="50dp"
+        android:importantForAccessibility="no" />
 </FrameLayout>

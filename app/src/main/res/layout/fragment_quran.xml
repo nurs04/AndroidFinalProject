@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".Fragments.QuranFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/quran_linear_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="horizontal"
+        android:background="#5A7C65"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        
+        <ImageView
+            android:id="@+id/quran_back_button"
+            android:layout_margin="18dp"
+            android:src="@drawable/arrow_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="TODO" />
+
+        <TextView
+            android:id="@+id/sura"
+            android:layout_marginStart="61dp"
+            android:layout_marginTop="18dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ubuntu"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Суры"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="38dp"
+            android:textColor="@color/white"
+            android:text="|"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/juz"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="18dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/ubuntu"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:text="Джузы"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/settings_button_quran"
+            android:layout_marginStart="69dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/settings_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="TODO" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_container_juz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quran_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

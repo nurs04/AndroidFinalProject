@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PracticeProject</string>
+    <string name="app_name">Farda</string>
     <string name="vol">vol</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -7,4 +7,14 @@
     <string name="schedule">Таблица на месяц</string>
     <string name="fon">Фоновая картина</string>
     <string name="settings">Настройки</string>
+    <string name="tandau">ТаҢдаулылар</string>
+    <string name="i_i">ЗIкIрлер</string>
+    <string name="almaty_name">Алматы</string>
+    <string name="fadjr">Фаджр</string>
+    <string name="kun">Восход</string>
+    <string name="besin">Зухр</string>
+    <string name="asr">Аср</string>
+    <string name="aqsham">Магриб</string>
+    <string name="quptan">Иша</string>
+    <string name="qibla">Qibla</string>
 </resources>
