@@ -4,8 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragments.DjuzFragment">
+    <TextView
+        android:layout_marginTop="4dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/ubuntu"
+        android:textSize="23sp"
+        android:textAlignment="center"
+        android:text="Аль-Фатиха"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="31dp"
         android:id="@+id/djuz_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

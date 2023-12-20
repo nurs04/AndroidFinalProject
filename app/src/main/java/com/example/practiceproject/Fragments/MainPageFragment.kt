@@ -1,5 +1,6 @@
 package com.example.practiceproject.Fragments
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,6 +30,7 @@ class MainPageFragment : Fragment() {
     private lateinit var asrLayout: LinearLayout
     private lateinit var aqshamLayout: LinearLayout
     private lateinit var quptanLayout: LinearLayout
+    private lateinit var location: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -40,6 +42,12 @@ class MainPageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main_page, container, false)
 //        val scaleUp = AnimationUtils.loadAnimation(requireContext(), R.anim.scale_up)
         val bottomNavigationView = view.findViewById<BottomNavigationView>(R.id.bottom_nav)
+        location = view.findViewById<TextView>(R.id.location_text)
+
+        location.setOnClickListener {
+            showCitySelected()
+        }
+
         timeTextView = view.findViewById(R.id.current_time)
         weekDay = view.findViewById(R.id.week_day)
         day = view.findViewById(R.id.day_in_hijr)
@@ -55,7 +63,6 @@ class MainPageFragment : Fragment() {
         asrLayout = view.findViewById(R.id.forth_linear)
         aqshamLayout = view.findViewById(R.id.fives_linear)
         quptanLayout = view.findViewById(R.id.six_linear)
-
         viewModel = ViewModelProvider(this).get(MainPageViewModel::class.java)
         viewModel.currentTime.observe(viewLifecycleOwner) { currentTime ->
             timeTextView.text = currentTime
@@ -108,6 +115,33 @@ class MainPageFragment : Fragment() {
         }
 //        setOnClick()
         return view
+    }
+    val cityIdMap = mapOf(
+        "Актау" to "8376",
+        "Алматы" to "8408",
+        "Астана" to "8359",
+        "Бейнеу" to "8365",
+        "Жаркент" to "8420",
+        "Мангышлак" to "8369",
+        "Талды-Курган" to "8423",
+        "Талгар" to "62459",
+        "Шетпе" to "8375",
+        "Уштобе" to "8426"
+    )
+    private fun showCitySelected() {
+        val cityList = cityIdMap.keys.toTypedArray()
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setTitle("Выберите город")
+        builder.setItems(cityList) { dialog, which ->
+            val selectedCity = cityList[which]
+            location.text = selectedCity
+            val cityId = cityIdMap[selectedCity]
+            cityId?.let {
+                viewModel.updatePrayerTimesForCityAndType(it, "=json")
+            }
+            dialog.dismiss()
+        }
+        builder.create().show()
     }
 
     private fun showBottomSheetDialog() {

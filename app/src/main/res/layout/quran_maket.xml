@@ -14,23 +14,23 @@
             android:layout_marginStart="18dp"
             android:layout_marginTop="10dp"
             android:id="@+id/numberOfSurah"
+            android:paddingTop="5dp"
             android:textAlignment="center"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:text="1"
+            android:text="114"
             android:background="@drawable/backround_for_number"
             android:layout_width="40dp"
             android:layout_height="40dp"/>
-
         <TextView
             android:id="@+id/name_surah"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:fontFamily="@font/ubuntu"
-            android:layout_marginTop="9dp"
+            android:layout_marginTop="12dp"
             android:textSize="28sp"
             android:text="Аль-Фатиха"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -41,7 +41,7 @@
         android:textColor="@color/black"
         android:text="7 аят"
         android:layout_marginTop="17dp"
-        android:layout_marginStart="310dp"
+        android:layout_marginStart="325dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <ImageView

@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <LinearLayout
+        android:id="@+id/line"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="29dp"
+            android:id="@+id/arabic"
+            android:layout_marginEnd="20dp"
+            android:textSize="22sp"
+            android:text="صِرَٰطَ ٱلَّذِينَ أَنۡعَمۡتَ عَلَيۡهِمۡ غَيۡرِ ٱلۡمَغۡضُوبِ\n عَلَيۡهِمۡ وَلَا ٱلضَّآلِّينَِ"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textAlignment="textEnd"
+            android:textSize="16sp"
+            android:text="Стезёю тех,Кто милостью Твоею одарён,\nА не стезёю тех, на ком Твой гнев,\nИ не стезёй заблудших."
+            android:id="@+id/translation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/line"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:fontFamily="@font/ubuntu"
+            android:layout_marginStart="18dp"
+            android:id="@+id/ayah_number"
+            android:text="1"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/rec"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center"
+            android:src="@drawable/rectangle_23__1_"
+            android:layout_width="380dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

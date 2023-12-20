@@ -70,7 +70,7 @@ class MainPageViewModel : ViewModel() {
 
     private fun fetchPrayerTimes() {
         viewModelScope.launch {
-                val response = retrofitService.getPrayerTimes()
+                val response = retrofitService.getPrayerTimes("8408", "=json")
                 if (response.isSuccessful) {
                     _prayerTimes.value = response.body()
                 } else {
@@ -78,6 +78,22 @@ class MainPageViewModel : ViewModel() {
                     Log.e("SurahFragment", "Ошибка: ${response.code()}, ${errorBody ?: "Unknown error"}")
                 }
 
+        }
+    }
+
+   fun updatePrayerTimesForCityAndType(cityId: String, type: String) {
+        viewModelScope.launch {
+            try {
+                val response = retrofitService.getPrayerTimes(cityId, type)
+                if (response.isSuccessful) {
+                    _prayerTimes.value = response.body()
+                } else {
+                    val errorBody = response.errorBody()?.string()
+                    Log.e("MainPageFragment", "Ошибка: ${response.code()}, ${errorBody ?: "Unknown error"}")
+                }
+            } catch (e: IOException) {
+                Log.e("MainPageFragment", "Ошибка сети: ${e.message}")
+            }
         }
     }
 
