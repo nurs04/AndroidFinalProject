@@ -45,11 +45,11 @@
         android:id="@+id/location_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="290dp"
+        android:layout_marginStart="280dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/ubuntu"
-        android:text="@string/almaty_name"
+        android:text="Алматы"
         android:textColor="@color/white"
         android:textSize="22sp"
         app:drawableLeftCompat="@drawable/location" />
@@ -72,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"  >
             <TextView
+                android:id="@+id/match_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ubuntu_condensed_regular"
@@ -97,7 +98,7 @@
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_1"
                 android:paddingStart="12dp"
@@ -140,7 +141,7 @@
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_2"
                 android:paddingStart="12dp"
@@ -183,7 +184,7 @@
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_3"
                 android:paddingStart="5dp"
@@ -222,11 +223,11 @@
         <LinearLayout
             android:id="@+id/forth_linear"
             android:layout_marginEnd="12dp"
-            android:layout_marginStart="183dp"
+            android:layout_marginStart="184dp"
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_4"
                 android:paddingStart="5dp"
@@ -265,11 +266,11 @@
         <LinearLayout
             android:id="@+id/fives_linear"
             android:layout_marginEnd="12dp"
-            android:layout_marginStart="237dp"
+            android:layout_marginStart="239dp"
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_5"
                 android:paddingStart="5dp"
@@ -311,7 +312,7 @@
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:layout_width="58dp"
-            android:layout_height="wrap_content">
+            android:layout_height="85dp">
             <TextView
                 android:id="@+id/namaz_time_6"
                 android:paddingStart="5dp"

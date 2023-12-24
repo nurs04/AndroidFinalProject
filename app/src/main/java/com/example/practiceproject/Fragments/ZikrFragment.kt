@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.practiceproject.Adapters.ZikrAdapter
@@ -15,6 +18,8 @@ class ZikrFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var zikrList : ArrayList<ZikrData>
     private lateinit var zikrAdapter: ZikrAdapter
+    private lateinit var zikrCounterTextView: TextView
+    private var counterValue: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +38,21 @@ class ZikrFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+
+        zikrCounterTextView = view.findViewById(R.id.zikr_counter)
+
+        val linear : LinearLayout = view.findViewById(R.id.linear_in_zikr)
+        val reset : Button = view.findViewById(R.id.reset_btn)
+
+        linear.setOnClickListener{
+            counterValue++
+            zikrCounterTextView.text = counterValue.toString()
+        }
+
+        reset.setOnClickListener{
+            counterValue = 0
+            zikrCounterTextView.text = counterValue.toString()
+        }
     }
 
     private fun init() {

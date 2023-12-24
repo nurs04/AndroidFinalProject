@@ -3,12 +3,116 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#5Ada"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.FonFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:fontFamily="@font/ubuntu"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:layout_marginStart="200dp"
+        android:text="Fons"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="60dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/first_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/mosque_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="50dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/second_img"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mosque_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="325dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="60dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/third_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/mosque_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:elevation="100dp"
+            android:layout_marginStart="50dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/forth_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/mosque_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="600dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="60dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/fifth_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/mosque_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginStart="50dp"
+            app:cardCornerRadius="10dp"
+            android:layout_width="130dp"
+            android:layout_height="240dp">
+            <ImageView
+                android:id="@+id/sixth_img"
+                android:scaleType="fitXY"
+                android:src="@drawable/mosque_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
 </FrameLayout>

@@ -1,17 +1,30 @@
 package com.example.practiceproject.Fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.practiceproject.API.DjuzService
+import com.example.practiceproject.API.SurahService
+import com.example.practiceproject.Adapters.DjuzAdapter
 import com.example.practiceproject.Adapters.QuranAdapter
 import com.example.practiceproject.Adapters.SurahAdapter
+import com.example.practiceproject.Model.Ayah
+import com.example.practiceproject.Model.EntireQuranModel
 import com.example.practiceproject.Model.QuranData
+import com.example.practiceproject.Model.Surah
 import com.example.practiceproject.Model.SurahData
 import com.example.practiceproject.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class DjuzFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -33,7 +46,48 @@ class DjuzFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+//        setupRecyclerView()
+//        loadData()
     }
+
+//    private fun setupRecyclerView() {
+//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        djuzAdapter = DjuzAdapter(requireContext(), quranList)
+//        recyclerView.adapter = djuzAdapter
+//    }
+//
+//    private fun loadData() {
+//        val retrofit = Retrofit.Builder()
+//            .baseUrl("https://api.alquran.cloud/v1/")
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .build()
+//
+//        val service = retrofit.create(DjuzService::class.java)
+//
+//        CoroutineScope(Dispatchers.IO).launch {
+//            try {
+//                val response: Response<EntireQuranModel> = service.getData()
+//                if (response.isSuccessful) {
+//                    val data = response.body()
+//                    data?.let {
+//                        quranList = it.data.surahs.flatMap { surah -> surah.ayahs }
+//                        update(quranList)
+//                    }
+//                } else {
+//                    val errorBody = response.errorBody()?.string()
+//                    Log.e("DjuzFragment", "Ошибка: ${response.code()}, ${errorBody ?: "Unknown error"}")
+//                }
+//            } catch (e: Exception) {
+//                Log.e("DjuzFragment", "Exception: ${e.message}")
+//            }
+//        }
+//    }
+//
+//    private fun update(data: List<Ayah>) {
+//        requireActivity().runOnUiThread {
+//            djuzAdapter.updateData(data)
+//        }
+//    }
 
     private fun init() {
         quranList = ArrayList()

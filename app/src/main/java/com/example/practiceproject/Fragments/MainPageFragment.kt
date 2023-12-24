@@ -1,18 +1,24 @@
 package com.example.practiceproject.Fragments
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.practiceproject.R
 import com.example.practiceproject.ViewModel.MainPageViewModel
+import com.example.practiceproject.ui.PrayerTimePreferences
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.util.Timer
+import kotlin.concurrent.timerTask
+
 class MainPageFragment : Fragment() {
     private lateinit var tan: TextView
     private lateinit var kun: TextView
@@ -31,8 +37,14 @@ class MainPageFragment : Fragment() {
     private lateinit var aqshamLayout: LinearLayout
     private lateinit var quptanLayout: LinearLayout
     private lateinit var location: TextView
+    private lateinit var match : TextView
+    private lateinit var prayerTimePreferences: PrayerTimePreferences
+    private lateinit var mainMenuImg: ImageView
+    private var timer : Timer? = null
+    private var backgroundTimer: Timer? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        prayerTimePreferences = PrayerTimePreferences(requireContext())
     }
 
     override fun onCreateView(
@@ -47,7 +59,7 @@ class MainPageFragment : Fragment() {
         location.setOnClickListener {
             showCitySelected()
         }
-
+        match = view.findViewById(R.id.match_time)
         timeTextView = view.findViewById(R.id.current_time)
         weekDay = view.findViewById(R.id.week_day)
         day = view.findViewById(R.id.day_in_hijr)
@@ -66,6 +78,7 @@ class MainPageFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainPageViewModel::class.java)
         viewModel.currentTime.observe(viewLifecycleOwner) { currentTime ->
             timeTextView.text = currentTime
+//            changePrayerTextIfTimeMatches(currentTime)
         }
         viewModel.currentWeekDay.observe(viewLifecycleOwner) { observedWeekDay ->
             weekDay.text = observedWeekDay
@@ -87,13 +100,6 @@ class MainPageFragment : Fragment() {
                 asr.text = asrN
                 aqsham.text = aqshamN
                 quptan.text = quptanN
-
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), tanN, tanLayout)
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), kunN, kunLayout)
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), besinN, besinLayout)
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), asrN, asrLayout)
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), aqshamN, aqshamLayout)
-                changeBackgroundIfTimeMatches(timeTextView.text.toString(), quptanN, quptanLayout)
             }
         }
         bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
@@ -116,6 +122,44 @@ class MainPageFragment : Fragment() {
 //        setOnClick()
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+            startBackgroundTime()
+            startTimerToUpdatePrayerText()
+    }
+
+    private fun startBackgroundTime() {
+        backgroundTimer = Timer()
+        backgroundTimer?.scheduleAtFixedRate(timerTask {
+            viewModel.currentTime.value?.let { currentTime ->
+                viewModel.prayerTimes.value?.let { observedPrayTime ->
+                    observedPrayTime.praytimes.let {
+                        requireActivity().runOnUiThread {
+                            changeBackgroundIfTimeMatches(currentTime, it.bamdat, tanLayout)
+                            changeBackgroundIfTimeMatches(currentTime, it.kun, kunLayout)
+                            changeBackgroundIfTimeMatches(currentTime, it.besin, besinLayout)
+                            changeBackgroundIfTimeMatches(currentTime, it.ekindi, asrLayout)
+                            changeBackgroundIfTimeMatches(currentTime, it.aqsham, aqshamLayout)
+                            changeBackgroundIfTimeMatches(currentTime, it.quptan, quptanLayout)
+                        }
+                    }
+                }
+            }
+        }, 0, 60000)
+    }
+
+    private fun startTimerToUpdatePrayerText(){
+        timer = Timer()
+        timer?.scheduleAtFixedRate(timerTask {
+            viewModel.currentTime.value?.let {currentTime ->
+                requireActivity().runOnUiThread {
+                    changePrayerTextIfTimeMatches(currentTime)
+                }
+            }
+        }, 0, 60000)
+    }
+
     val cityIdMap = mapOf(
         "Актау" to "8376",
         "Алматы" to "8408",
@@ -210,9 +254,40 @@ class MainPageFragment : Fragment() {
     }
 
     private fun changeBackgroundIfTimeMatches(currentTime: String, textViewTime: String, layoutToChange: LinearLayout) {
-        val currentTimeWithoutSeconds = currentTime.substring(0, 5)
+        val currentTimeWithoutSeconds = currentTime.substringBeforeLast(":")
         if (currentTimeWithoutSeconds == textViewTime) {
-            layoutToChange.setBackgroundResource(R.color.backGreen)
+            layoutToChange.setBackgroundResource(R.drawable.background_for_time)
+        }
+    }
+
+    private fun changePrayerTextIfTimeMatches(currentTime: String) {
+        val currentTimeWithoutSeconds = currentTime.substringBeforeLast(":")
+        val tanTime = tan.text.toString()
+        val kunTime = kun.text.toString()
+        val besinTime = besin.text.toString()
+        val asrTime = asr.text.toString()
+        val aqshamTime = aqsham.text.toString()
+        val quptanTime = quptan.text.toString()
+
+        when (currentTimeWithoutSeconds) {
+            tanTime -> {
+                match.text = getString(R.string.fadjr)
+            }
+            kunTime -> {
+                match.text = getString(R.string.kun)
+            }
+            besinTime -> {
+                match.text = getString(R.string.besin)
+            }
+            asrTime -> {
+                match.text = getString(R.string.asr)
+            }
+            aqshamTime -> {
+                match.text = getString(R.string.aqsham)
+            }
+            quptanTime -> {
+                match.text = getString(R.string.quptan)
+            }
         }
     }
 

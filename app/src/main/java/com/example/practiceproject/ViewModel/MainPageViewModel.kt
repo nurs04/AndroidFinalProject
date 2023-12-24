@@ -63,7 +63,7 @@ class MainPageViewModel : ViewModel() {
     }
 
     private fun getCurrentTimeInTimeZone(timeZone: String): String {
-        val sdf = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
+        val sdf = SimpleDateFormat("H:mm:ss", Locale.getDefault())
         sdf.timeZone = TimeZone.getTimeZone(timeZone)
         return sdf.format(Date())
     }
@@ -96,5 +96,4 @@ class MainPageViewModel : ViewModel() {
             }
         }
     }
-
 }
